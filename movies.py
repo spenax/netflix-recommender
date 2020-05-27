@@ -33,7 +33,7 @@ class movies:
         self.rt_score = rt_score
 
 allMovies = []
-submissions = reddit.subreddit('NetflixBestOf').search("[US] -title:[REQUEST]", time_filter='day')
+submissions = reddit.subreddit('NetflixBestOf').search("[US] -title:[REQUEST]", time_filter='week')
 for submission in submissions:
     postTitle = submission.title
     score = submission.score
@@ -74,6 +74,8 @@ def find_score(title, year):
     movie_results = json_data["movies"]
     tv_results = json_data["tvSeries"]
     matched_score=-1
+
+    #to do: add fuzzy logic for approximate year?
 
 
     if json_data["movieCount"] > 0:
